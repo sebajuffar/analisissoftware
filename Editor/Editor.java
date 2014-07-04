@@ -375,9 +375,4 @@ class Editor extends JFrame implements ActionListener
 	     	  	pg.dispose (); //Finalizar pagina
 	     	  	pjob.end(); //Termina trabajo y escupe pagina
        }
-		 
-		 public static void main (String []args)
-		 {
-		 	new Editor();
-		 }
 }
