@@ -80,6 +80,9 @@ class Editor extends JFrame implements ActionListener
 	JTextArea Errores=new JTextArea(6,1);
 	
 	String Copiar="";
+	private final JMenu mnAyuda = new JMenu("Ayuda");
+	private final JMenuItem mntmCreditos = new JMenuItem("Creditos");
+	private final JMenuItem mntmAyuda = new JMenuItem("Ayuda");
 	
 	Editor()
 	{
@@ -126,6 +129,19 @@ class Editor extends JFrame implements ActionListener
 		MBarra.add(MEdicion);
 		setJMenuBar(MBarra);
 		
+		MBarra.add(mnAyuda);
+		mntmCreditos.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				System.out.println("Estoy aquí");
+				new Creditos();
+			}
+		});
+		
+		mnAyuda.add(mntmCreditos);
+		
+		mnAyuda.add(mntmAyuda);
+		
 		//ToolBar
 		TBarra.add(BNuevo);
 		BNuevo.addActionListener(this);
@@ -166,7 +182,7 @@ class Editor extends JFrame implements ActionListener
 		colorFondo.addActionListener(this);
 		colorFondo.setBackground(Color.WHITE);
 		
-		add(TBarra,"North");
+		getContentPane().add(TBarra,"North");
 		Texto.requestFocus();
 		TBarra.setFloatable(false);
 		
@@ -185,11 +201,11 @@ class Editor extends JFrame implements ActionListener
 		
 		//Aadir barras de scroll a la caja de texto principal
 		JScrollPane barrillas=new JScrollPane(Texto,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		add(barrillas);
+		getContentPane().add(barrillas);
 		
 		//Aadir barras de scroll a la caja de texto de los errores
 		JScrollPane barrasError=new JScrollPane(Errores,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-		add(barrasError,"South");
+		getContentPane().add(barrasError,"South");
 		
 		
 		//Cerrar Ventana
@@ -201,7 +217,7 @@ class Editor extends JFrame implements ActionListener
 			 }
 		});
 		
-		setTitle("Editor de Texto http://todojava.awardspace.com");	
+		setTitle("Editor de Texto");	
 	    setSize(800,600);
 		setVisible(true);
 			
