@@ -74,7 +74,7 @@ public class Login extends JFrame {
 		btnIngresar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				// Chequeo los par·metros de entrada
+				// Chequeo los parÔøΩmetros de entrada
 				String miPass, user;
 				miPass = new String(textField_1.getPassword());
 				user = textField.getText();
@@ -96,12 +96,17 @@ public class Login extends JFrame {
 			public void mouseClicked(MouseEvent arg0) {
 				// Limpio los botones
 				if (textField.getText().length() != 0 && textField_1.getPassword().length != 0) {
-					try {
-						String pass = new String(textField_1.getPassword());
-						nuevoUsuario(textField.getText(), pass);
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+					String user = textField.getText();
+					if(validarUsuario(user)){
+							try {
+								String pass = new String(textField_1.getPassword());
+								nuevoUsuario(textField.getText(), pass);
+							} catch (IOException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+					}else{
+					JOptionPane.showMessageDialog(null, "Usuario Incorrecto. El usuario debe tener s√≥lo n√∫meros y/o letras y no m√°s de 16 caracteres");	
 					}
 				} else {
 					JOptionPane.showMessageDialog(null, "Debe especificar Usuario y Pass");
@@ -114,9 +119,9 @@ public class Login extends JFrame {
 	}
 
 	private void nuevoUsuario(String user, String pass) throws IOException {
-		// Estoy guardando un usuario nuevo	
+		// Estoy guardando un usuario nuevo
 		if(pass.length() < 4 || pass.length() > 8){
-			JOptionPane.showMessageDialog(null, "La contraseÒa debe tener entre 4 y 8 caracteres.");
+			JOptionPane.showMessageDialog(null, "La contraseÔøΩa debe tener entre 4 y 8 caracteres y poseer solo n√∫mero y/o letras.");
 		}else{
 			File passwd = new File(".//passwd");
 			String newUser;
@@ -142,32 +147,47 @@ public class Login extends JFrame {
 				String[] datos = leido.split(":");
 
 				if (datos[0].compareTo(user) == 0) {
-					// EncontrÈ el usuario
+					// EncontrÔøΩ el usuario
 					passwd.close();
 					lector.close();
 					return verificarPassword(datos[1], miPass);
 				}
 			}
 		} catch (IOException e) {
-			
-			JOptionPane.showMessageDialog(null, "No se ha creado ning˙n usuario a˙n, por favor cree uno antes de continuar.");
-			
+
+			JOptionPane.showMessageDialog(null, "No se ha creado ningÔøΩn usuario aÔøΩn, por favor cree uno antes de continuar.");
+
 			try {
 				passwd.close();
 				lector.close();
 			} catch (IOException e1) {
-				JOptionPane.showMessageDialog(null, "OcurriÛ un error al cerrar los archivos.");
+				JOptionPane.showMessageDialog(null, "OcurriÔøΩ un error al cerrar los archivos.");
 			}
 		}
 		return false;
 	}
 
 	private boolean verificarPassword(String passS, String passE) {
-		if (passE.length() > 8 || passE.length() < 4)
-			return false; // Valores entre 4 y 8
-		if (passS.compareTo(passE) != 0)
+		if (passE.length() > 4 && passE.length() < 8 && passS.compareTo(passE) == 0){
+			char [] letras = passE.toCharArray();
+			for(int i = 0; i< letras.length; i++){
+				if(!letras[i].isLetter() || !letras[i].isDigit())
+					return false;
+			}
+			return true;
+		}else
 			return false;
+	}
 
-		return true;
+	private validarUsuario(String user){
+		if(user.length() <= 16){
+			char [] letras = user.toCharArray();
+			for(int i = 0; i< letras.length; i++){
+				if(!letras[i].isLetter() || !letras[i].isDigit())
+					return false;
+			}
+			return true;
+		}
+		return false;
 	}
 }
