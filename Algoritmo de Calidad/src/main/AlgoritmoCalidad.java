@@ -9,10 +9,51 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JButton;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class AlgoritmoCalidad extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private JCheckBox f_e_bueno;
+	private JCheckBox f_e_regular;
+	private JCheckBox f_e_malo;
+	private JCheckBox f_s_bueno;
+	private JCheckBox f_s_regular;
+	private JCheckBox f_s_malo;
+	private JCheckBox e_u_bueno;
+	private JCheckBox e_u_regular;
+	private JCheckBox e_u_malo;
+	private JCheckBox e_c_bueno;
+	private JCheckBox e_c_regular;
+	private JCheckBox e_c_malo;
+	private JCheckBox f_t_bueno;
+	private JCheckBox f_t_regular;
+	private JCheckBox f_t_malo;
+	private JCheckBox f_r_bueno;
+	private JCheckBox f_r_regular;
+	private JCheckBox f_r_malo;
+	private JCheckBox m_c_bueno;
+	private JCheckBox m_c_regular;
+	private JCheckBox m_c_malo;
+	private JCheckBox m_e_bueno;
+	private JCheckBox m_e_regular;
+	private JCheckBox m_e_malo;
+	private JCheckBox u_s_bueno;
+	private JCheckBox u_s_regular;
+	private JCheckBox u_s_malo;
+	private JCheckBox u_o_bueno;
+	private JCheckBox u_o_regular;
+	private JCheckBox u_o_malo;
+	private JCheckBox u_a_bueno;
+	private JCheckBox u_a_regular;
+	private JCheckBox u_a_malo;
+	private JCheckBox p_a_bueno;
+	private JCheckBox p_a_regular;
+	private JCheckBox p_a_malo;
+	private JCheckBox p_p_bueno;
+	private JCheckBox p_p_regular;
+	private JCheckBox p_p_malo;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -31,9 +72,10 @@ public class AlgoritmoCalidad extends JFrame {
 	 * Create the frame.
 	 */
 	public AlgoritmoCalidad() {
+		setResizable(false);
 		setTitle("Algoritmo de Calidad");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 424, 511);
+		setBounds(100, 100, 580, 511);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -64,219 +106,278 @@ public class AlgoritmoCalidad extends JFrame {
 		contentPane.add(lblPortabilidad);
 		
 		JLabel lblExactitud = new JLabel("Exactitud");
-		lblExactitud.setBounds(29, 36, 46, 14);
+		lblExactitud.setBounds(29, 36, 140, 14);
 		contentPane.add(lblExactitud);
 		
-		JCheckBox chckbxBueno = new JCheckBox("Bueno");
-		chckbxBueno.setBounds(232, 31, 55, 23);
-		contentPane.add(chckbxBueno);
+		f_e_bueno = new JCheckBox("Bueno");
+		f_e_bueno.setBounds(327, 36, 77, 23);
+		contentPane.add(f_e_bueno);
 		
-		JCheckBox chckbxRegular = new JCheckBox("Regular");
-		chckbxRegular.setBounds(289, 31, 63, 23);
-		contentPane.add(chckbxRegular);
+		f_e_regular = new JCheckBox("Regular");
+		f_e_regular.setBounds(406, 37, 76, 23);
+		contentPane.add(f_e_regular);
 		
-		JCheckBox chckbxMalo = new JCheckBox("Malo");
-		chckbxMalo.setBounds(354, 30, 56, 23);
-		contentPane.add(chckbxMalo);
+		f_e_malo = new JCheckBox("Malo");
+		f_e_malo.setBounds(484, 36, 56, 23);
+		contentPane.add(f_e_malo);
 		
 		JLabel lblSeguridadDeAcceso = new JLabel("Seguridad de Acceso");
 		lblSeguridadDeAcceso.setBounds(29, 57, 124, 14);
 		contentPane.add(lblSeguridadDeAcceso);
 		
-		JCheckBox checkBox_10 = new JCheckBox("Bueno");
-		checkBox_10.setBounds(232, 52, 55, 23);
-		contentPane.add(checkBox_10);
+		f_s_bueno = new JCheckBox("Bueno");
+		f_s_bueno.setBounds(327, 57, 77, 23);
+		contentPane.add(f_s_bueno);
 		
-		JCheckBox checkBox_11 = new JCheckBox("Regular");
-		checkBox_11.setBounds(289, 52, 63, 23);
-		contentPane.add(checkBox_11);
+		f_s_regular = new JCheckBox("Regular");
+		f_s_regular.setBounds(406, 58, 76, 23);
+		contentPane.add(f_s_regular);
 		
-		JCheckBox checkBox_12 = new JCheckBox("Malo");
-		checkBox_12.setBounds(354, 51, 56, 23);
-		contentPane.add(checkBox_12);
+		f_s_malo = new JCheckBox("Malo");
+		f_s_malo.setBounds(484, 57, 56, 23);
+		contentPane.add(f_s_malo);
 		
 		JLabel lblUsoDelProcesador = new JLabel("Uso del Procesador");
 		lblUsoDelProcesador.setBounds(29, 102, 153, 14);
 		contentPane.add(lblUsoDelProcesador);
 		
-		JCheckBox checkBox = new JCheckBox("Bueno");
-		checkBox.setBounds(232, 97, 55, 23);
-		contentPane.add(checkBox);
+		e_u_bueno = new JCheckBox("Bueno");
+		e_u_bueno.setBounds(327, 102, 77, 23);
+		contentPane.add(e_u_bueno);
 		
-		JCheckBox checkBox_1 = new JCheckBox("Regular");
-		checkBox_1.setBounds(289, 97, 63, 23);
-		contentPane.add(checkBox_1);
+		e_u_regular = new JCheckBox("Regular");
+		e_u_regular.setBounds(406, 103, 76, 23);
+		contentPane.add(e_u_regular);
 		
-		JCheckBox checkBox_13 = new JCheckBox("Malo");
-		checkBox_13.setBounds(354, 96, 56, 23);
-		contentPane.add(checkBox_13);
+		e_u_malo = new JCheckBox("Malo");
+		e_u_malo.setBounds(484, 102, 56, 23);
+		contentPane.add(e_u_malo);
 		
 		JLabel lblComportamientoEnEl = new JLabel("Comportamiento en el tiempo");
 		lblComportamientoEnEl.setBounds(29, 123, 197, 14);
 		contentPane.add(lblComportamientoEnEl);
 		
-		JCheckBox checkBox_14 = new JCheckBox("Bueno");
-		checkBox_14.setBounds(232, 118, 55, 23);
-		contentPane.add(checkBox_14);
+		e_c_bueno = new JCheckBox("Bueno");
+		e_c_bueno.setBounds(327, 123, 77, 23);
+		contentPane.add(e_c_bueno);
 		
-		JCheckBox checkBox_15 = new JCheckBox("Regular");
-		checkBox_15.setBounds(289, 118, 63, 23);
-		contentPane.add(checkBox_15);
+		e_c_regular = new JCheckBox("Regular");
+		e_c_regular.setBounds(406, 124, 76, 23);
+		contentPane.add(e_c_regular);
 		
-		JCheckBox checkBox_16 = new JCheckBox("Malo");
-		checkBox_16.setBounds(354, 117, 56, 23);
-		contentPane.add(checkBox_16);
+		e_c_malo = new JCheckBox("Malo");
+		e_c_malo.setBounds(484, 123, 56, 23);
+		contentPane.add(e_c_malo);
 		
 		JLabel lblToleranciaAFallos = new JLabel("Tolerancia a Fallos");
-		lblToleranciaAFallos.setBounds(29, 169, 139, 14);
+		lblToleranciaAFallos.setBounds(29, 169, 153, 14);
 		contentPane.add(lblToleranciaAFallos);
 		
-		JCheckBox checkBox_2 = new JCheckBox("Bueno");
-		checkBox_2.setBounds(232, 164, 55, 23);
-		contentPane.add(checkBox_2);
+		f_t_bueno = new JCheckBox("Bueno");
+		f_t_bueno.setBounds(327, 169, 77, 23);
+		contentPane.add(f_t_bueno);
 		
-		JCheckBox checkBox_3 = new JCheckBox("Regular");
-		checkBox_3.setBounds(289, 164, 63, 23);
-		contentPane.add(checkBox_3);
+		f_t_regular = new JCheckBox("Regular");
+		f_t_regular.setBounds(406, 170, 76, 23);
+		contentPane.add(f_t_regular);
 		
-		JCheckBox checkBox_17 = new JCheckBox("Malo");
-		checkBox_17.setBounds(354, 163, 56, 23);
-		contentPane.add(checkBox_17);
+		f_t_malo = new JCheckBox("Malo");
+		f_t_malo.setBounds(484, 169, 56, 23);
+		contentPane.add(f_t_malo);
 		
 		JLabel lblRecuperacinDeErrores = new JLabel("Recuperaci\u00F3n de Errores");
-		lblRecuperacinDeErrores.setBounds(29, 190, 124, 14);
+		lblRecuperacinDeErrores.setBounds(29, 190, 179, 14);
 		contentPane.add(lblRecuperacinDeErrores);
 		
-		JCheckBox checkBox_18 = new JCheckBox("Bueno");
-		checkBox_18.setBounds(232, 185, 55, 23);
-		contentPane.add(checkBox_18);
+		f_r_bueno = new JCheckBox("Bueno");
+		f_r_bueno.setBounds(327, 190, 77, 23);
+		contentPane.add(f_r_bueno);
 		
-		JCheckBox checkBox_19 = new JCheckBox("Regular");
-		checkBox_19.setBounds(289, 185, 63, 23);
-		contentPane.add(checkBox_19);
+		f_r_regular = new JCheckBox("Regular");
+		f_r_regular.setBounds(406, 191, 76, 23);
+		contentPane.add(f_r_regular);
 		
-		JCheckBox checkBox_20 = new JCheckBox("Malo");
-		checkBox_20.setBounds(354, 184, 56, 23);
-		contentPane.add(checkBox_20);
+		f_r_malo = new JCheckBox("Malo");
+		f_r_malo.setBounds(484, 190, 56, 23);
+		contentPane.add(f_r_malo);
 		
 		JLabel lblCapacidadDelCdigo = new JLabel("Capacidad del C\u00F3digo de ser analizado");
-		lblCapacidadDelCdigo.setBounds(29, 235, 197, 14);
+		lblCapacidadDelCdigo.setBounds(29, 235, 253, 14);
 		contentPane.add(lblCapacidadDelCdigo);
 		
-		JCheckBox checkBox_4 = new JCheckBox("Bueno");
-		checkBox_4.setBounds(232, 230, 55, 23);
-		contentPane.add(checkBox_4);
+		m_c_bueno = new JCheckBox("Bueno");
+		m_c_bueno.setBounds(327, 235, 77, 23);
+		contentPane.add(m_c_bueno);
 		
-		JCheckBox checkBox_5 = new JCheckBox("Regular");
-		checkBox_5.setBounds(289, 230, 63, 23);
-		contentPane.add(checkBox_5);
+		m_c_regular = new JCheckBox("Regular");
+		m_c_regular.setBounds(406, 236, 76, 23);
+		contentPane.add(m_c_regular);
 		
-		JCheckBox checkBox_21 = new JCheckBox("Malo");
-		checkBox_21.setBounds(354, 229, 56, 23);
-		contentPane.add(checkBox_21);
+		m_c_malo = new JCheckBox("Malo");
+		m_c_malo.setBounds(484, 235, 56, 23);
+		contentPane.add(m_c_malo);
 		
 		JLabel lblEstabilidad = new JLabel("Estabilidad");
 		lblEstabilidad.setBounds(29, 256, 124, 14);
 		contentPane.add(lblEstabilidad);
 		
-		JCheckBox checkBox_22 = new JCheckBox("Bueno");
-		checkBox_22.setBounds(232, 251, 55, 23);
-		contentPane.add(checkBox_22);
+		m_e_bueno = new JCheckBox("Bueno");
+		m_e_bueno.setBounds(327, 256, 77, 23);
+		contentPane.add(m_e_bueno);
 		
-		JCheckBox checkBox_23 = new JCheckBox("Regular");
-		checkBox_23.setBounds(289, 251, 63, 23);
-		contentPane.add(checkBox_23);
+		m_e_regular = new JCheckBox("Regular");
+		m_e_regular.setBounds(406, 257, 76, 23);
+		contentPane.add(m_e_regular);
 		
-		JCheckBox checkBox_24 = new JCheckBox("Malo");
-		checkBox_24.setBounds(354, 250, 56, 23);
-		contentPane.add(checkBox_24);
+		m_e_malo = new JCheckBox("Malo");
+		m_e_malo.setBounds(484, 256, 56, 23);
+		contentPane.add(m_e_malo);
 		
 		JLabel lblSerComprendido = new JLabel("Ser Comprendido");
 		lblSerComprendido.setBounds(29, 301, 197, 14);
 		contentPane.add(lblSerComprendido);
 		
-		JCheckBox checkBox_6 = new JCheckBox("Bueno");
-		checkBox_6.setBounds(232, 296, 55, 23);
-		contentPane.add(checkBox_6);
+		u_s_bueno = new JCheckBox("Bueno");
+		u_s_bueno.setBounds(327, 301, 77, 23);
+		contentPane.add(u_s_bueno);
 		
-		JCheckBox checkBox_7 = new JCheckBox("Regular");
-		checkBox_7.setBounds(289, 296, 63, 23);
-		contentPane.add(checkBox_7);
+		u_s_regular = new JCheckBox("Regular");
+		u_s_regular.setBounds(406, 302, 76, 23);
+		contentPane.add(u_s_regular);
 		
-		JCheckBox checkBox_25 = new JCheckBox("Malo");
-		checkBox_25.setBounds(354, 295, 56, 23);
-		contentPane.add(checkBox_25);
+		u_s_malo = new JCheckBox("Malo");
+		u_s_malo.setBounds(484, 301, 56, 23);
+		contentPane.add(u_s_malo);
 		
 		JLabel lblOperable = new JLabel("Operable");
 		lblOperable.setBounds(29, 322, 124, 14);
 		contentPane.add(lblOperable);
 		
-		JCheckBox checkBox_26 = new JCheckBox("Bueno");
-		checkBox_26.setBounds(232, 317, 55, 23);
-		contentPane.add(checkBox_26);
+		u_o_bueno = new JCheckBox("Bueno");
+		u_o_bueno.setBounds(327, 322, 77, 23);
+		contentPane.add(u_o_bueno);
 		
-		JCheckBox checkBox_27 = new JCheckBox("Regular");
-		checkBox_27.setBounds(289, 317, 63, 23);
-		contentPane.add(checkBox_27);
+		u_o_regular = new JCheckBox("Regular");
+		u_o_regular.setBounds(406, 323, 76, 23);
+		contentPane.add(u_o_regular);
 		
-		JCheckBox checkBox_28 = new JCheckBox("Malo");
-		checkBox_28.setBounds(354, 316, 56, 23);
-		contentPane.add(checkBox_28);
+		u_o_malo = new JCheckBox("Malo");
+		u_o_malo.setBounds(484, 322, 56, 23);
+		contentPane.add(u_o_malo);
 		
 		JLabel lblAdaptabilidad = new JLabel("Adaptabilidad");
-		lblAdaptabilidad.setBounds(29, 386, 46, 14);
+		lblAdaptabilidad.setBounds(29, 386, 89, 14);
 		contentPane.add(lblAdaptabilidad);
 		
-		JCheckBox checkBox_8 = new JCheckBox("Bueno");
-		checkBox_8.setBounds(232, 381, 55, 23);
-		contentPane.add(checkBox_8);
+		p_a_bueno = new JCheckBox("Bueno");
+		p_a_bueno.setBounds(327, 386, 77, 23);
+		contentPane.add(p_a_bueno);
 		
-		JCheckBox checkBox_9 = new JCheckBox("Regular");
-		checkBox_9.setBounds(289, 381, 63, 23);
-		contentPane.add(checkBox_9);
+		p_a_regular = new JCheckBox("Regular");
+		p_a_regular.setBounds(406, 387, 76, 23);
+		contentPane.add(p_a_regular);
 		
-		JCheckBox checkBox_29 = new JCheckBox("Malo");
-		checkBox_29.setBounds(354, 380, 56, 23);
-		contentPane.add(checkBox_29);
+		p_a_malo = new JCheckBox("Malo");
+		p_a_malo.setBounds(484, 386, 56, 23);
+		contentPane.add(p_a_malo);
 		
 		JLabel lblPortabilidad_1 = new JLabel("Portabilidad");
 		lblPortabilidad_1.setBounds(29, 407, 124, 14);
 		contentPane.add(lblPortabilidad_1);
 		
-		JCheckBox checkBox_30 = new JCheckBox("Bueno");
-		checkBox_30.setBounds(232, 402, 55, 23);
-		contentPane.add(checkBox_30);
+		p_p_bueno = new JCheckBox("Bueno");
+		p_p_bueno.setBounds(327, 407, 77, 23);
+		contentPane.add(p_p_bueno);
 		
-		JCheckBox checkBox_31 = new JCheckBox("Regular");
-		checkBox_31.setBounds(289, 402, 63, 23);
-		contentPane.add(checkBox_31);
+		p_p_regular = new JCheckBox("Regular");
+		p_p_regular.setBounds(406, 408, 76, 23);
+		contentPane.add(p_p_regular);
 		
-		JCheckBox checkBox_32 = new JCheckBox("Malo");
-		checkBox_32.setBounds(354, 401, 56, 23);
-		contentPane.add(checkBox_32);
+		p_p_malo = new JCheckBox("Malo");
+		p_p_malo.setBounds(484, 407, 56, 23);
+		contentPane.add(p_p_malo);
 		
 		JLabel lblAtractivo = new JLabel("Atractivo");
 		lblAtractivo.setBounds(29, 344, 124, 14);
 		contentPane.add(lblAtractivo);
 		
-		JCheckBox checkBox_33 = new JCheckBox("Bueno");
-		checkBox_33.setBounds(232, 339, 55, 23);
-		contentPane.add(checkBox_33);
+		u_a_bueno = new JCheckBox("Bueno");
+		u_a_bueno.setBounds(327, 344, 77, 23);
+		contentPane.add(u_a_bueno);
 		
-		JCheckBox checkBox_34 = new JCheckBox("Regular");
-		checkBox_34.setBounds(289, 339, 63, 23);
-		contentPane.add(checkBox_34);
+		u_a_regular = new JCheckBox("Regular");
+		u_a_regular.setBounds(406, 345, 76, 23);
+		contentPane.add(u_a_regular);
 		
-		JCheckBox checkBox_35 = new JCheckBox("Malo");
-		checkBox_35.setBounds(354, 338, 56, 23);
-		contentPane.add(checkBox_35);
+		u_a_malo = new JCheckBox("Malo");
+		u_a_malo.setBounds(484, 344, 56, 23);
+		contentPane.add(u_a_malo);
+		
+		final JLabel resultado = new JLabel("<replace for HTML>");
+		resultado.setBounds(327, 443, 210, 14);
+		contentPane.add(resultado);
 		
 		JButton btnVerificar = new JButton("Verificar");
+		btnVerificar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				
+				//Verifico el estado de los botones
+				//Chequear Funcionalidad
+				if(checkFuncionalidad() && checkEficiencia() && checkMantenibilidad() && checkUsabilidad()
+						&& checkPortabilidad() && checkFiabilidad()){
+					resultado.setText("Calidad mínima alcanzada");
+				}else{
+					resultado.setText("Calidad mínima No alcanzada");
+				}
+				
+			}			
+		});
 		btnVerificar.setBounds(29, 439, 89, 23);
 		contentPane.add(btnVerificar);
 		
-		JLabel lblFdafdasf = new JLabel("<replace for HTML>");
-		lblFdafdasf.setBounds(211, 443, 174, 14);
-		contentPane.add(lblFdafdasf);
+		
+	}
+	
+	private boolean checkFuncionalidad() {
+		if((this.f_e_bueno.isSelected() || this.f_e_regular.isSelected()) && (this.f_s_bueno.isSelected() || this.f_s_regular.isSelected()))
+			return true;
+		
+		return false;
+	}
+	
+	private boolean checkPortabilidad() {
+		if(this.p_a_bueno.isSelected())
+			 return true;
+		
+		return false;
+	}
+
+	private boolean checkUsabilidad() {
+		if(this.u_s_bueno.isSelected() || this.u_o_bueno.isSelected() || this.u_a_bueno.isSelected())
+			return true;
+		
+		return false;
+	}
+
+	private boolean checkMantenibilidad() {
+		if(this.m_c_bueno.isSelected() || this.m_e_bueno.isSelected() )
+			return true;
+		
+		return false;
+	}
+
+	private boolean checkEficiencia() {
+		if((this.e_u_bueno.isSelected() || this.e_u_regular.isSelected()) && (this.e_c_bueno.isSelected() || this.e_c_regular.isSelected()))
+			return true;
+		
+		return false;
+	}
+	
+	private boolean checkFiabilidad() {
+		if((this.f_t_bueno.isSelected() || this.f_t_regular.isSelected()) && (this.f_r_bueno.isSelected() || this.f_r_regular.isSelected()))
+			return true;
+		
+		return false;
 	}
 }
