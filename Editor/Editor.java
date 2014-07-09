@@ -37,6 +37,10 @@ class Editor extends JFrame implements ActionListener
 	JMenuItem MBuscar=new JMenuItem("Buscar");
 	JMenuItem MRemplazar=new JMenuItem("Reemplazar");
 	JMenuItem MSelec=new JMenuItem("Seleccionar todo");
+	JMenu mnAyuda = new JMenu("Ayuda");
+	JMenuItem MCreditos = new JMenuItem("Creditos");
+	JMenuItem MAyuda = new JMenuItem("Ayuda");
+	
 	//Toolbar
 	JToolBar TBarra=new JToolBar(); 
 		JButton BNuevo=new JButton();
@@ -65,7 +69,7 @@ class Editor extends JFrame implements ActionListener
 	ImageIcon IBuscar=new ImageIcon("buscar.gif");
 	ImageIcon ISalir=new ImageIcon("salir.gif");
 	
-		String nombre=" "; //nobre del programa
+		String nombre=" "; //nombre del programa
 	
 	//Paleta de colores
 	JButton colorTexto=new JButton("    ");
@@ -80,9 +84,7 @@ class Editor extends JFrame implements ActionListener
 	JTextArea Errores=new JTextArea(6,1);
 	
 	String Copiar="";
-	private final JMenu mnAyuda = new JMenu("Ayuda");
-	private final JMenuItem mntmCreditos = new JMenuItem("Creditos");
-	private final JMenuItem mntmAyuda = new JMenuItem("Ayuda");
+	
 	
 	Editor()
 	{
@@ -127,20 +129,13 @@ class Editor extends JFrame implements ActionListener
 		MSelec.addActionListener(this);
 		MBarra.add(MArchivo);
 		MBarra.add(MEdicion);
+		MBarra.add(mnAyuda);
 		setJMenuBar(MBarra);
 		
-		MBarra.add(mnAyuda);
-		mntmCreditos.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				System.out.println("Estoy aqu�");
-				new Creditos();
-			}
-		});
-		
-		mnAyuda.add(mntmCreditos);
-		
-		mnAyuda.add(mntmAyuda);
+		mnAyuda.add(MCreditos);
+		MCreditos.addActionListener(this);
+		mnAyuda.add(MAyuda);
+		MAyuda.addActionListener(this);
 		
 		//ToolBar
 		TBarra.add(BNuevo);
@@ -258,13 +253,16 @@ class Editor extends JFrame implements ActionListener
 	 		ElegirColor myColor=new ElegirColor(this,"Elegir color...",true,"texto");
 	 	}
 	  }
+	  
 		public void actionPerformed(ActionEvent ae)
 		 {
 			 //Método encargado de la escucha de la acción realizada sobre el botón Archivo
 			 //Dentro del mismo, existen varias opciones. Se identifica la opción a realizar
 			 // y Se procede a crear un objeto que es capaz de realizar las distintas acciones.
 			 
-		 	if(ae.getSource()==MImprimir) imprimir();
+		 	if(ae.getSource()==MCreditos) new Creditos();
+			
+			if(ae.getSource()==MImprimir) imprimir();
 		 	//Sale
 		 	if(ae.getSource()==MSalir) dispose();
 		 	
