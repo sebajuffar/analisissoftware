@@ -66,7 +66,7 @@ public class Login extends JFrame {
 		lblUsuario.setBounds(35, 27, 86, 14);
 		contentPane.add(lblUsuario);
 
-		JLabel lblContrasea = new JLabel("Contraseña:");
+		JLabel lblContrasea = new JLabel("Contraseï¿½a:");
 		lblContrasea.setBounds(35, 58, 86, 14);
 		contentPane.add(lblContrasea);
 
@@ -83,7 +83,7 @@ public class Login extends JFrame {
 					new Editor();
 					_frame.setVisible(false);
 				} else {
-					JOptionPane.showMessageDialog(null, "Datos incorrectos. NO existe usuario y/o pass Incorrecto.");
+					JOptionPane.showMessageDialog(null, "Datos incorrectos. Usuario o contraseÃ±a incorrecta.");
 				}
 			}
 		});
