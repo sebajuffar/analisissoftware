@@ -63,10 +63,10 @@ public class Login extends JFrame {
 		contentPane.add(textField_1);
 
 		JLabel lblUsuario = new JLabel("Usuario:");
-		lblUsuario.setBounds(35, 27, 46, 14);
+		lblUsuario.setBounds(35, 27, 86, 14);
 		contentPane.add(lblUsuario);
 
-		JLabel lblContrasea = new JLabel("Contrase\u00F1a:");
+		JLabel lblContrasea = new JLabel("Contraseña:");
 		lblContrasea.setBounds(35, 58, 86, 14);
 		contentPane.add(lblContrasea);
 
@@ -169,21 +169,16 @@ public class Login extends JFrame {
 
 	private boolean verificarPassword(String passS, String passE) {
 		if (passE.length() > 4 && passE.length() < 8 && passS.compareTo(passE) == 0){
-			char [] letras = passE.toCharArray();
-			for(int i = 0; i< letras.length; i++){
-				if(!letras[i].isLetter() || !letras[i].isDigit())
-					return false;
-			}
 			return true;
 		}else
 			return false;
 	}
 
-	private validarUsuario(String user){
+	private boolean validarUsuario(String user){
 		if(user.length() <= 16){
-			char [] letras = user.toCharArray();
-			for(int i = 0; i< letras.length; i++){
-				if(!letras[i].isLetter() || !letras[i].isDigit())
+//			char [] letras = user.toCharArray();
+			for(int i = 0; i< user.length(); i++){
+				if(!Character.isLetter(user.charAt(i)) || !Character.isLetter(user.charAt(i)))
 					return false;
 			}
 			return true;
